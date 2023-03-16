@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST SELECTION</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style5.css' %}">
+</head>
+
+<body>
+
+    <form onSubmit="return validateform(this);" method="post" action="getquestion">
+        {% csrf_token %}
+        <div class="container">
+
+            <div class="box1">
+                Your Details&emsp;:&emsp;{{name}}
+            </div>
+
+            <div class="box1">
+                Time Duration &emsp;:&emsp; 10 Mins
+            </div>
+            <div class="box1">
+                Test Selected &emsp;:&emsp;
+                <textarea id="testnamelabel" type="text" value="" class="testnamelabel" disabled>No Test Selected</textarea>
+            </div>
+
+            <div class="box2">
+                <span class="label">Select Test To Continue </span>
+                <select name="testname" id="testname" class="selectbox form-control" onchange="myFunction(event)">
+                    <option disabled selected class="selected" value="">Select Test</option>
+                    {% for tname in testnames %}
+                    <option value={{tname}} class="selected">{{tname}}</option>
+                    {% endfor %}
+                    <!--
+                    <option value="Physics" class="selected">Saab</option>
+                    <option value="Mercedes" class="selected">Mercedes</option>
+                    <option value="Audi" class="selected">Audi</option>-->
+                </select>
+            </div>
+
+            <div class="box1 submit">
+                <input type="submit" value="Continue" class="submit_btn">
+            </div>
+
+        </div>
+    </form>
+
+
+
+</body>
+<script lang="Javascript" type="text/javascript">
+    function myFunction(e) {
+        document.getElementById("testnamelabel").value = e.target.value
+    }
+
+    function validateform(e) {
+        console.log("hello");
+        if (e.testname.value == "") {
+            alert("Please Select A Test");
+            e.testname.focus();
+            return false;
+        }
+    }
+</script>
+
+</html>

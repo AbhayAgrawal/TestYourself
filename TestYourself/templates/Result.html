@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devjam</title>
+    <style>
+        /*button {
+            position: relative;
+            top: 120px;
+            left: 630px;
+            font-size: xx-large;
+            text-shadow: 2em;
+            background-color: rgb(4, 143, 4);
+        }*/
+        
+        h4 {
+            text-align: center;
+            position: relative;
+            top: 60px;
+            font-weight: 700;
+            font-size: xx-large;
+            color: greenyellow;
+        }
+        
+        h3 {
+            text-align: center;
+            position: relative;
+            left: 300px;
+            top: -60px;
+        }
+        
+        p {
+            font-size: larger;
+        }
+        
+        h2,
+        p {
+            text-align: center;
+            position: relative;
+            right: 250px;
+            font-size: xx-large;
+            font-weight: 700;
+            top: 5px;
+        }
+        
+        body {
+            background-color: gray;
+            color: white;
+        }
+        
+        h1 {
+            text-align: center;
+            text-decoration: underline solid white 4px;
+            position: relative;
+            top: 200px;
+        }
+        
+        .submit_btn {
+            float: center;
+            text-align: center;
+        }
+        
+        .submit_btn input {
+            background-color: rgb(224, 9, 9);
+            border-radius: 20px;
+            opacity: 100%;
+            font-size: medium;
+            font-weight: bold;
+            font-style: italic;
+            color: azure;
+            cursor: pointer;
+            width: 30vh;
+            margin-top: 50px;
+            height: 30px;
+        }
+        
+        .submit_btn input:hover {
+            opacity: 100%;
+            border-color: black;
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="GET" action="http://127.0.0.1:8000">
+        <div>
+            <h1>Mark Obtained</h1>
+
+            <h2>
+                Test Name:{{tname}}
+
+            </h2>
+            <p>
+                Name : {{name}}
+            </p>
+
+
+
+        </div>
+        <div>
+            <h3>
+                Time Taken :{{tm}}
+            </h3>
+
+            <h4>
+                {{marks}}/{{tmarks}}
+            </h4>
+
+        </div>
+
+        <!--<div>
+        <button>
+            Logout
+        </button>
+
+    </div>-->
+        <div class='submit_btn'><input type="submit" value="Logout"></div>
+    </form>
+</body>
+
+</html>
