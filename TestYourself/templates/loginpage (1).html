@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load static%}
+    <link rel="stylesheet" href="{% static 'style3.css' %}">
+    <!--   
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <script src="https://kit.fontawesome.com/433888fe69.js" crossorigin="anonymous"></script>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+    <title>Hello</title>
+</head>
+
+{% load static %}
+
+<body background="{% static 'bg5.jpg' %}">
+
+
+    <form method="POST" action="gettest">
+        {% csrf_token %}
+        <div class="box">
+
+
+
+            <div class="container2">
+                <div class="login">
+                    <h1>Test Log In</h1>
+                </div>
+                <div class="flex-item">
+
+                    <i class="fa fa-envelope"></i>
+                    <input type="text" placeholder="Enter Your Name" name="st_details" required>
+
+
+                </div>
+
+                <div class="flex-item">
+
+                    <i class="fa fa-unlock-alt"></i>
+                    <input type="password" name="password" placeholder="Enter Your Password" name="password" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                </div>
+
+                {% for minfo,m in message %}
+                <!--<div class="messagename">{{message}}</div>-->
+                <div class="messagename">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>{{minfo}}</strong> <br>{{m}}
+                </div>
+                {% endfor %}
+
+
+                <button type="submit" class="submit"> Start Test</button>
+            </div>
+
+        </div>
+    </form>
+
+
+</body>
+
+</html>
