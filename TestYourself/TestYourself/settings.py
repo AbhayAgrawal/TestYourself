@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'TestYourself.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'questions',
+        'NAME': 'testyourselfattempt',
         'HOST':'localhost',
     	'PASSWORD':'abhay@2611',
     	'PORT': 3306,

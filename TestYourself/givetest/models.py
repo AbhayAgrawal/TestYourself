@@ -1,18 +1,19 @@
 from django.db import models
 
 # Create your models here.
-class QuizMst(models.Model):
+class QuizQuestion(models.Model):
     qid = models.AutoField(db_column='QID', primary_key=True)  # Field name made lowercase.
-    qname = models.TextField(db_column='QNAME')  # Field name made lowercase.
-    op1 = models.TextField(db_column='OP1')  # Field name made lowercase.
-    op2 = models.TextField(db_column='OP2')  # Field name made lowercase.
-    op3 = models.TextField(db_column='OP3')  # Field name made lowercase.
-    correct_op = models.CharField(db_column='CORRECT_OP', max_length=3)  # Field name made lowercase.
-    subject = models.CharField(db_column='SUBJECT', max_length=45)  # Field name made lowercase.
+    qname = models.TextField(db_column='question')  # Field name made lowercase.
+    op1 = models.TextField(db_column='op1')  # Field name made lowercase.
+    op2 = models.TextField(db_column='op2')  # Field name made lowercase.
+    op3 = models.TextField(db_column='op3')
+    op4 = models.TextField(db_column='op4')    # Field name made lowercase.
+    ans = models.CharField(db_column='answer', max_length=3)  # Field name made lowercase.
+    cqid = models.ForeignKey(db_column='Cid', max_length=15,on_delete="NO ACTION", on_update="NO ACTION")  # Field name made lowercase.
 
     class Meta:
         managed = False
-        db_table = 'quiz_mst'
+        db_table = 'question_answer'
 
 class StudentMst(models.Model):
     sid = models.AutoField(db_column='SID', primary_key=True)  # Field name made lowercase.
